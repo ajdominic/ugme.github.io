@@ -29,6 +29,35 @@ the time-local propagator U(t) - Propagating the long-time dynamics of
 the TPMs with the resulting
 :math:`U_\infty(\delta t) \equiv U(t \geq \tau_R)`.
 
+Installation Instructions
+-------------------------
+
+This package is easily installed in an Anaconda environment or a virtual environment (.venv) via pip. If using a Conda environment, make sure that you have activated it prior to installation. Optional: check that the pip on the Path corresponds to the environment into which you would like to install ``ugme``:
+
+.. code-block:: bash
+		
+   which pip
+
+Ensure that the path returned by the console is the path to the correct python environment. Next, we'll download and install the package:
+
+.. code-block:: bash
+		
+   git clone https://github.com/ajdominic/ugme.github.io.git
+   pip install <path-to-cloned-repository>
+
+Quick Start
+-----------
+
+.. code-block:: python
+
+   from ugme import UGME
+   
+   model = UGME(dt=0.1).fit_fetch("kineticmodel.npy")
+   tau_R = model.select_tau_R(threshold=0.01)
+   prediction = model.predict(tau_R)
+
+Some examples can be found at :doc:`notebooks/examples`.
+
 Associated Publications
 -----------------------
 
@@ -62,10 +91,10 @@ cite:
 
 
 .. toctree::
-   :maxdepth: 2
+   :maxdepth: 3
    :caption: Contents:
+   :hidden:	     
 
-   notebooks/software_testing
-   notebooks/kineticmodel
+   notebooks/examples
    api/modules
    api/ugmeestimator
