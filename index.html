@@ -54,15 +54,14 @@ short-time simulations.</p>
 into reduced dynamical models while retaining a compact description of
 the dynamics. We further introduce a simple averaging procedure to tame
 the noise from underconverged correlation matrices.</p>
-<p>This repository contains tools for: - Estimating time-local memory
-functions from a time-series of transition probability matrices (TPMs),
-<span class="math notranslate nohighlight">\(C(t)\)</span> - Computing the time-local generator <span class="math notranslate nohighlight">\(U(t)\)</span> from the
-<span class="math notranslate nohighlight">\(C(t)\)</span> - Characterizing memory plateau <span class="math notranslate nohighlight">\(\tau_R\)</span> timescales
-with the RMSE error metric (in the absence of noise) - Identifying
-optimal onset (<span class="math notranslate nohighlight">\(t_r\)</span>) and offset <span class="math notranslate nohighlight">\((\tau_R)\)</span> of averaging for
-the time-local propagator U(t) - Propagating the long-time dynamics of
-the TPMs with the resulting
-<span class="math notranslate nohighlight">\(U_\infty(\delta t) \equiv U(t \geq \tau_R)\)</span>.</p>
+<p>This repository contains tools for:</p>
+<ul class="simple">
+<li><p>Estimating time-local memory functions from a time-series of transition probability matrices (TPMs), <span class="math notranslate nohighlight">\(T(t)\)</span></p></li>
+<li><p>Computing the time-local generator <span class="math notranslate nohighlight">\(U(t)\)</span> from the <span class="math notranslate nohighlight">\(T(t)\)</span></p></li>
+<li><p>Characterizing memory plateau <span class="math notranslate nohighlight">\(\tau_R\)</span> timescales with the RMSE error metric (in the absence of noise)</p></li>
+<li><p>Identifying optimal onset (<span class="math notranslate nohighlight">\(t_r\)</span>) and offset <span class="math notranslate nohighlight">\((\tau_R)\)</span> of averaging for the time-local propagator U(t)</p></li>
+<li><p>Propagating the long-time dynamics of the TPMs with the resulting <span class="math notranslate nohighlight">\(U_\infty(\delta t) \equiv U(t \geq \tau_R)\)</span>.</p></li>
+</ul>
 <section id="installation-instructions">
 <h2>Installation Instructions<a class="headerlink" href="#installation-instructions" title="Link to this heading">¶</a></h2>
 <p>This package is easily installed in an Anaconda environment or a virtual environment (.venv) via pip. If using a Conda environment, make sure that you have activated it prior to installation. Optional: check that the pip on the Path corresponds to the environment into which you would like to install <code class="docutils literal notranslate"><span class="pre">ugme</span></code>:</p>

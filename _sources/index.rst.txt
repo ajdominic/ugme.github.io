@@ -19,15 +19,17 @@ into reduced dynamical models while retaining a compact description of
 the dynamics. We further introduce a simple averaging procedure to tame
 the noise from underconverged correlation matrices.
 
-This repository contains tools for: - Estimating time-local memory
-functions from a time-series of transition probability matrices (TPMs),
-:math:`C(t)` - Computing the time-local generator :math:`U(t)` from the
-:math:`C(t)` - Characterizing memory plateau :math:`\tau_R` timescales
-with the RMSE error metric (in the absence of noise) - Identifying
-optimal onset (:math:`t_r`) and offset :math:`(\tau_R)` of averaging for
-the time-local propagator U(t) - Propagating the long-time dynamics of
-the TPMs with the resulting
-:math:`U_\infty(\delta t) \equiv U(t \geq \tau_R)`.
+This repository contains tools for:
+
+- Estimating time-local memory functions from a time-series of transition probability matrices (TPMs), :math:`T(t)`
+
+- Computing the time-local generator :math:`U(t)` from the :math:`T(t)`
+
+- Characterizing memory plateau :math:`\tau_R` timescales with the RMSE error metric (in the absence of noise)
+
+- Identifying optimal onset (:math:`t_r`) and offset :math:`(\tau_R)` of averaging for the time-local propagator U(t)
+
+- Propagating the long-time dynamics of the TPMs with the resulting :math:`U_\infty(\delta t) \equiv U(t \geq \tau_R)`.
 
 Installation Instructions
 -------------------------
