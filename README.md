@@ -57,7 +57,7 @@ And a broad discussion of memory effects in biomolecular dynamics can be found i
 If you use this repository or adapt the methods in your own work, please cite:
 
 ```bibtex
-@article{dominic2023ugme,
+@article{Dominic:2023a,
   title = {Building insightful, memory-enriched models to capture long-time biochemical processes from short-time simulations},
   author = {Anthony J. Dominic III and Thomas Sayer and Siqin Cao and Thomas E. Markland and Xuhui Huang and Andrés Montoya-Castillo},
   journal = {Proceedings of the National Academy of Sciences},
