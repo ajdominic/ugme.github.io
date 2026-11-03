@@ -5,7 +5,9 @@ Documentation 📚 https://ajdominic.github.io/ugme.github.io/
 
 The `ugme` is a software for building and analyzing time-convolutionless generalized master equation models of biomolecular dynamics. We developed this method to directly include short-time memory effects in reduced dynamical models that recover long-time kinetics from short-time simulations. 
 
-<img src="paper/schematic.png" alt="Schematic of the U-GME framework" width="500">
+<p align="center">
+  <img src="paper/schematic.png" alt="Schematic of the U-GME framework" width="600">
+</p>
 
 **Overview**
 
