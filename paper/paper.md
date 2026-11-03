@@ -50,6 +50,7 @@ Recent developments have extended molecular kinetic modeling beyond the Markovia
 # Software design
 
 The primary input to `ugme` is a time-indexed sequence of square TPMs, $\{ \mathbf{T}(t_0),\mathbf{T}(t_1),\ldots,\mathbf{T}(t_N) \}$, where each $\mathbf{T}(t_n)$ contains the conditional transition probabilities between the states of the reduced model at time $t_n = n \Delta t$, where $\Delta t$ is the time interval between successive TPMs (i.e., the temporal resolution of the reference dataset) and $t_N$ is the final timestep of the input TPM dataset. Crucially, their time evolution evolves according to $\mathbf{T}(t_{n+1}) = \mathbf{U}(t_n) \mathbf{T}(t_n)$, where the time-dependent propagator $\mathbf{U}(t_n)$ provides a direct measure of the relaxation of memory in the reduced dynamics. The memory in $\mathbf{U}(t_n)$ decays and non-Markovian effects become unimportant when its matrix elements reach a steady state. As such, the memory relaxation timescale $\tau_R \equiv t_R = R \Delta t$ is the time at which $\mathbf{U}(t_n)$ plateaus. For times beyond $\tau_R$, we replace the propagator with its stabilized value $\mathbf{U}_\infty (\Delta t)  \equiv \mathbf{U}(\tau_R)$. Beyond $\tau_R$, the dynamics evolve according to
+
 $$
 \mathbf{T}(\tau_R + n\Delta t) = \mathbf{U}_\infty^n(\Delta t)\mathbf{T}(\tau_R).
 $$
@@ -57,8 +58,16 @@ $$
 The package is organized around the `UGME` model object, which stores the TPM time series, temporal resolution, and quantities generated during model construction. From the TPMs, `ugme` computes the corresponding time-local propagator $\mathbf{U}$ by directly solving the time-local form for $\mathbf{U}(t_n) = \mathbf{T}(t_{n+1}) [\mathbf{T}(t_{n})]^{-1}$ and tracks its time evolution. The plateauing of $\mathbf{U}(t)$ quantifies the memory's relaxation time in the reduced dynamics. For sufficiently converged data, `ugme` identifies the memory-relaxation timescale $\tau_R$ using the RMSE-based convergence criterion we established in @Dominic:2023a.
 
 TPMs estimated from finitely-sampled trajectory data can introduce statistical error into the late-time propagator. To reduce the propagator's sensitivity to this noise, `ugme` supports time-averaging of the propagator $\mathbf{U}$. We introduce tools to compute the onset ($t_r$) and offset ($\tau_R$) averaging parameters and the averaged propagator that we define as
-$$ \langle \mathbf{U}_\infty(\Delta t) \rangle  = \frac{1}{R - r}\sum_{n = r}^{R-1} \mathbf{U}(t_n).$$
-To suppress noise and propagate the dynamics, we insert the averaged propagator into our GME to obtain $$ \mathbf{T}(\tau_R + n\Delta t) = \langle \mathbf{U}_\infty(\Delta t) \rangle ^n \mathbf{T}(\tau_R).$$
+
+$$
+\langle \mathbf{U}_\infty(\Delta t) \rangle  = \frac{1}{R - r}\sum_{n = r}^{R-1} \mathbf{U}(t_n).
+$$
+
+To suppress noise and propagate the dynamics, we insert the averaged propagator into our GME to obtain
+
+$$
+\mathbf{T}(\tau_R + n\Delta t) = \langle \mathbf{U}_\infty(\Delta t) \rangle ^n \mathbf{T}(\tau_R).
+$$
 
 In a typical workflow, a user supplies a TPM time series, constructs the corresponding `UGME` model, determines $\tau_R$, selects an averaging window when needed, and propagates to access the long-time dynamics. This organization keeps the model diagnostics accessible while maintaining a compact interface for routine calculations. These stages are exposed separately so that users can inspect the quantities entering the model and assess if and how numerical choices affect the resulting kinetics.
 
